@@ -1,0 +1,24 @@
+<!-- <h1> Hello World </h1> -->
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best Movie Review website </title>
+    {% endif %}
+</head>
+
+<body>
+    {% block content %}
+    <h2 style="color:navy"> Popular Movies</h2>
+    <ul>
+        {{ macro.displayMovieList(popular)}}
+    </ul>
+    {% endblock%}
+</body>
+
+</html>
