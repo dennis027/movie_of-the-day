@@ -8,11 +8,13 @@ db = SQLAlchemy(app)
 
 class Genres(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String, nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    
+    type_genre = db.Column(db.String(100), nullable=False)
+    date_genre = db.Column(db.DateTime, default=datetime.utcnow)
+    name_movie = db.Column(db.String, nullable=False)
+    id_movie = db.Column(db.Integer, nullable=False)
+     
     def __repr__(self):
-        return  '<Task %r>' % self.id
+        return  '<Genre %r>' % self.id
     
     
 @app.route('/')
