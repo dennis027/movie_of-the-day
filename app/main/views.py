@@ -1,5 +1,3 @@
-from flask import render_template, request, redirect, url_for
-from . import main
 from ..request import get_genre_movies, get_genres, get_movies, get_movie, watch_trailer
 from flask import render_template,request,redirect,url_for,abort
 from . import main

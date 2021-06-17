@@ -45,7 +45,7 @@ def process_results(movie_list):
             movie_object = Movie(id, title, overview,
                                  poster, vote_average, vote_count)
             movie_results.append(movie_object)
-
+    print(movie_results)
     return movie_results
 
 
