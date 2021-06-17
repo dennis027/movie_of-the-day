@@ -7,7 +7,8 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dennis:Kimani123#@localhost/login'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
-
+    GENRES_URL ='https://api.themoviedb.org/3/genre/movie/list?api_key={}'
+    GENRE_MOVIES_URL = 'https://api.themoviedb.org/3/discover/movie?api_key={}&with_genres={}'
 
       #email configutions
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -16,14 +17,21 @@ class Config:
     MAIL_USERNAME=os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD=os.environ.get("MAIL_PASSWORD")
 
+
 class ProdConfig(Config):
     pass
 
+class TestConfig(Config):
+    pass
 
 class DevConfig(Config):
+
     DEBUG = True
 
+
 config_options = {
-'development':DevConfig,
-'production':ProdConfig
+    'development': DevConfig,
+    'production': ProdConfig,
+    'test': TestConfig
 }
+

@@ -4,8 +4,6 @@ from flask_script import Manager,Server
 from app.models import User,Role
 
 
-
-
 # Creating app instance
 app = create_app('development')
 
