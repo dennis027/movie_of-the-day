@@ -5,7 +5,6 @@ class Config:
     MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dennis:Kimani123#@localhost/login'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     GENRES_URL ='https://api.themoviedb.org/3/genre/movie/list?api_key={}'
     GENRE_MOVIES_URL = 'https://api.themoviedb.org/3/discover/movie?api_key={}&with_genres={}'
@@ -19,13 +18,14 @@ class Config:
 
 
 class ProdConfig(Config):
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     pass
 
 class TestConfig(Config):
     pass
 
 class DevConfig(Config):
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dennis:Kimani123#@localhost/login'
     DEBUG = True
 
 
