@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+{% block content %}
+<title>This Genre</title>
+<div class="container">
+    {{ macro.displayGenres(genres)}}
+    <h3 style="font-size:100pt">
+        {{movies.name}}
+    </h3>
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-md-4 col-sm-12 col-xs-12 col-lg-3 col-xl-4" style="padding: 5px;">
+            <div class="photo-card">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" style="height:400px"
+                    class="img-responsive">
+                <div class="photo-details">
+                    <h5 class="text-success card-subtitle mb-2"><b>{{ movie.vote_average }}</b> -
+                        <i>{{ movie.vote_count}} votes</i></h5>
+                    <p>{{movie.overview | truncate(80)}}...</p>
+                    <a href="/movie/{{movie.id}}">View more</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

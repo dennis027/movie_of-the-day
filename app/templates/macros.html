@@ -1,12 +1,22 @@
 {% macro displayMovieList(movie_list) %}
 
 {% for movie in movie_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-    <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
-    <li class="text-center">
-        <a href="/movie/{{movie.id}}">
-            {{ movie.title|truncate(10)}}</a>
-    </li>
+<div class=" col-lg-3 movie-card">
+    <div class="card col-sm mt-2">
+        <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
+        <h4 style="color: rgb(255,255,255);"><a class=""
+            href="/movie/{{movie.id}}">{{movie.title |truncate(25)}}</a></h4>
+    </div>
 </div>
 {% endfor %}
+{% endmacro %}
+
+{%macro displayGenres(genres)%}
+{% for genre in genres %}
+<ul class="col-md-2">
+    <li style="list-style-type: none;"><a
+            href="{{url_for('main.genre_movies',id=genre.id)}}">{{genre.name}}</a></li>
+</ul>
+{% endfor %}
+
 {% endmacro %}

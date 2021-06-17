@@ -3,6 +3,7 @@
 {% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     {% if title %}
@@ -14,10 +15,21 @@
 
 <body>
     {% block content %}
-    <h2 style="color:navy"> Popular Movies</h2>
-    <ul>
-        {{ macro.displayMovieList(popular)}}
-    </ul>
+    <title>All Genres</title>
+    <div class="card col-sm mt-2 text-center">
+        <div class="card-body">
+            <div class="row">
+              {{ macro.displayGenres(genres)}}
+            </div>
+        </div>
+    </div>
+    <div class="text-center" style="margin-right: 10%; margin-left: 10%; font-weight: 700;">
+        <hr>
+        <h2 class="text-center" style="color:navy; font-size:35pt;"> MOVIES OF THE DAY</h2>
+        <ul>
+            {{ macro.displayMovieList(popular)}}
+        </ul>
+    </div>
     {% endblock%}
 </body>
 
