@@ -25,7 +25,8 @@ class TestConfig(Config):
     pass
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dennis:Kimani123#@localhost/login'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dennis:Kimani123#@localhost/login'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:jluseno@localhost/moviebase'
     DEBUG = True
 
 
