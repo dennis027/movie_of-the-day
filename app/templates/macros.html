@@ -1,11 +1,11 @@
 {% macro displayMovieList(movie_list) %}
 
 {% for movie in movie_list %}
-<div class=" col-lg-3 movie-card">
+<div class=" col-sm-3 movie-card">
     <div class="card col-sm mt-2">
         <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
-        <h4 style="color: rgb(255,255,255);"><a class=""
-            href="/movie/{{movie.id}}">{{movie.title |truncate(25)}}</a></h4>
+        <h5 style="color: rgb(255,255,255);"><a class=""
+            href="/movie/{{movie.id}}">{{movie.title |truncate(35)}}</a></h5>
     </div>
 </div>
 {% endfor %}
