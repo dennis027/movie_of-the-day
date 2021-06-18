@@ -24,12 +24,14 @@ def index():
         return render_template('index.html', title=title, popular=popular_movies, upcoming=upcoming_movie, now_showing=now_showing_movie, genres= genres)
 
 @main.route('/trailer/<int:id>')
+@login_required
 def trailer(id):
     trailer = watch_trailer(id)
     trailer_url = 'https://www.youtube.com/watch?v='+trailer
     return redirect(trailer_url)
     
 @main.route('/movie/<int:id>')
+@login_required
 def movie(id):
     '''
     View movie page function that returns the movie details page and its data
@@ -44,6 +46,7 @@ def genre_movies(id):
     return render_template('genre.html',movies = movies)
 
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
 
